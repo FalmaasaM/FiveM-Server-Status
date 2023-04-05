@@ -215,7 +215,7 @@ var checkMe = ['ADMINISTRATOR','CREATE_INSTANT_INVITE','KICK_MEMBERS','BAN_MEMBE
           const row = new MessageActionRow()
             .addComponents(
               new MessageButton()
-                .setLabel('Connect')
+                .setLabel('Connect Server')
                 .setURL(WEBSITE_URL)
                 .setStyle('LINK')
             );
@@ -224,7 +224,7 @@ var checkMe = ['ADMINISTRATOR','CREATE_INSTANT_INVITE','KICK_MEMBERS','BAN_MEMBE
         } else {
           sendOrUpdate(embed);
         }
-
+       
         LAST_COUNT = players.length;
       }).catch(offline);
     }).catch(offline);
@@ -264,7 +264,7 @@ var checkMe = ['ADMINISTRATOR','CREATE_INSTANT_INVITE','KICK_MEMBERS','BAN_MEMBE
       getPlayers().then((players) => {
     bot.user.setPresence({
       activities: [{
-          name: `${SERVER_NAME}`,
+          name: `[${players.length}/${MAX_PLAYERS}] on ${SERVER_NAME}`,
           type: "WATCHING"
       }], status: "online"
     })
