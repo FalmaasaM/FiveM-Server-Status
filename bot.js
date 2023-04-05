@@ -32,7 +32,7 @@ exports.start = function(SETUP) {
   \nPlease check that you do not have a firewall blocking connections to the port of the server.
   \nPlease also ensure you can access ${URL_SERVER} in a web browser, if you cannot please ensure nothing is blocking that port from being accessed like a firewall.`
   /////////////////////////////////////////////////////
-  const MAX_PLAYERS = 64;
+  const MAX_PLAYERS = 150;
   const TICK_MAX = 1 << 9;
   const FETCH_TIMEOUT = 2000;
   const FETCH_OPS = {
@@ -215,7 +215,7 @@ var checkMe = ['ADMINISTRATOR','CREATE_INSTANT_INVITE','KICK_MEMBERS','BAN_MEMBE
           const row = new MessageActionRow()
             .addComponents(
               new MessageButton()
-                .setLabel('Website')
+                .setLabel('Connect')
                 .setURL(WEBSITE_URL)
                 .setStyle('LINK')
             );
@@ -224,7 +224,7 @@ var checkMe = ['ADMINISTRATOR','CREATE_INSTANT_INVITE','KICK_MEMBERS','BAN_MEMBE
         } else {
           sendOrUpdate(embed);
         }
-       
+
         LAST_COUNT = players.length;
       }).catch(offline);
     }).catch(offline);
